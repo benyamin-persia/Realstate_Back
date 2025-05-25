@@ -10,7 +10,7 @@ export const SocketContextProvider = ({ children }) => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    const socketInstance = io("http://localhost:4000", {
+    const socketInstance = io("https://stark-chamber-54880-569471aeadac.herokuapp.com", {
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
