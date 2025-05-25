@@ -1,0 +1,168 @@
+.chat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: scroll;
+
+    h1 {
+      font-weight: 300;
+    }
+
+    .message {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .chatBox {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .top {
+      background-color: #f7c14b85;
+      padding: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      .close {
+        cursor: pointer;
+      }
+    }
+    .center {
+      height: 350px;
+      overflow: scroll;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .chatMessage {
+        display: flex;
+        width: 100%;
+        margin-bottom: 10px;
+
+        // Default styling for received messages (left side)
+        .messageContent {
+          max-width: 60%;
+          padding: 10px 15px;
+          border-radius: 15px;
+          background-color: #f0f0f0;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          align-self: flex-start;
+
+          .sender {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 2px;
+            color: #3182ce; // Blue color for receiver's name
+
+            &::after {
+              content: ":";
+              margin-left: 4px;
+            }
+          }
+
+          p {
+            margin: 0;
+            word-break: break-word;
+            color: #333;
+            text-align: left;
+          }
+
+          span {
+            font-size: 12px;
+            color: #666;
+            align-self: flex-end;
+          }
+        }
+
+        // Styling for sent messages (right side)
+        &.own {
+          justify-content: flex-end;
+
+          .messageContent {
+            background-color: #f7c14b85;
+            align-self: flex-end;
+
+            .sender {
+              text-align: right;
+              color: #e53e3e; // Red color for sender's name
+
+              &::after {
+                content: ":";
+                margin-left: 4px;
+              }
+            }
+
+            p {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+    .bottom {
+      border-top: 2px solid #f7c14b85;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      textarea {
+        flex: 3;
+        height: 100%;
+        border: none;
+        padding: 20px;
+      }
+
+      button {
+        flex: 1;
+        background-color: #f7c14b85;
+        height: 100%;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
