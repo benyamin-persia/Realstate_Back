@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiRequest = axios.create({
-  baseURL: "http://localhost:8800/api",
+  baseURL: "https://stark-chamber-54880-569471aeadac.herokuapp.com/api",
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
