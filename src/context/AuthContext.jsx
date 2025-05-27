@@ -2,9 +2,20 @@ import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 
+// Function to safely get user from localStorage
+const getInitialUser = () => {
+  try {
+    const user = localStorage.getItem("user");
+    return user ? JSON.parse(user) : null;
+  } catch (error) {
+    console.error("Error accessing localStorage:", error);
+    return null; // Return null if localStorage is inaccessible
+  }
+};
+
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
+    getInitialUser()
   );
 
   const updateUser = (data) => {
@@ -12,7 +23,12 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(currentUser));
+    // Safely set user in localStorage
+    try {
+      localStorage.setItem("user", JSON.stringify(currentUser));
+    } catch (error) {
+      console.error("Error setting localStorage:", error);
+    }
   }, [currentUser]);
 
   return (

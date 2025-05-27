@@ -111,8 +111,8 @@ function Chat({ chats }) {
             }}
             onClick={() => handleOpenChat(c.id, c.receiver)}
           >
-            <img src={c.receiver.avatar || "/noavatar.jpg"} alt="" />
-            <span>{c.receiver.username}</span>
+            <img src={c.receiver && c.receiver.avatar ? c.receiver.avatar : "/noavatar.jpg"} alt="" />
+            <span>{c.receiver && c.receiver.username ? c.receiver.username : "Unknown"}</span>
             <p>{c.lastMessage}</p>
           </div>
         ))}
@@ -121,8 +121,8 @@ function Chat({ chats }) {
         <div className="chatBox">
           <div className="top">
             <div className="user">
-              <img src={chat.receiver.avatar || "noavatar.jpg"} alt="" />
-              {chat.receiver.username}
+              <img src={chat.receiver && chat.receiver.avatar ? chat.receiver.avatar : "/noavatar.jpg"} alt="" />
+              {chat.receiver && chat.receiver.username ? chat.receiver.username : "Unknown"}
             </div>
             <span className="close" onClick={() => setChat(null)}>
               X

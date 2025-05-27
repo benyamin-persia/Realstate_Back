@@ -10,10 +10,11 @@ export const SocketContextProvider = ({ children }) => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    const socketInstance = io("https://stark-chamber-54880-569471aeadac.herokuapp.com", {
+    const socketInstance = io(import.meta.env.VITE_SOCKET_URL || "http://localhost:8800", {
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
+      withCredentials: true
     });
 
     socketInstance.on("connect", () => {
