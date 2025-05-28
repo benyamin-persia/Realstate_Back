@@ -11,6 +11,7 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     const socketInstance = io(import.meta.env.VITE_SOCKET_URL || "https://realstatesecondtrysocket-3c75c8909778.herokuapp.com", {
+      transports: ["websocket"],
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
