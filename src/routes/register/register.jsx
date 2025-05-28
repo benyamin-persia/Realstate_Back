@@ -29,7 +29,7 @@ function Register() {
 
       navigate("/login");
     } catch (err) {
-      setError(err.response.data.message);
+      setError(err.response?.data?.message || err.message);
     } finally {
       setIsLoading(false);
     }
