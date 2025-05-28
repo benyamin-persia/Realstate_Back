@@ -1,7 +1,11 @@
 {
+  "env": {
+    "VITE_API_URL": "https://realestatesecondtry-e51c68ea741a.herokuapp.com/api",
+    "VITE_SOCKET_URL": "https://realstatesecondtrysocket-3c75c8909778.herokuapp.com"
+  },
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "^/(.*)",
       "destination": "/index.html"
     }
   ]
