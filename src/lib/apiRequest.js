@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiRequest = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://realestatesecondtry-e51c68ea741a.herokuapp.com/api",
+  baseURL: "https://realestatesecondtry-e51c68ea741a.herokuapp.com/api",
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
