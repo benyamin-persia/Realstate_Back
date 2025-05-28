@@ -10,7 +10,7 @@ export const SocketContextProvider = ({ children }) => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    const socketInstance = io(import.meta.env.VITE_SOCKET_URL || "http://localhost:8800", {
+    const socketInstance = io(import.meta.env.VITE_SOCKET_URL || "https://realstatesecondtrysocket-3c75c8909778.herokuapp.com", {
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
